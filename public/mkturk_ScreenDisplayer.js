@@ -82,13 +82,13 @@ class ScreenDisplayer{
         frame_durations.push(sampleOn)
 
         // Optionally draw blank delay screen
-        if(sampleOff > 0){
-            var delayCanvas = this.getSequenceCanvas('stimulus_sequence', 1)
-            await this.renderBlank(delayCanvas) // todo: only do this on window resize
-            delayCanvas = await this.renderBlank(blankCanvas)
-            frame_canvases.push(delayCanvas)
-            frame_durations.push(sampleOff)
-        }
+        // if(sampleOff > 0){
+        //     var delayCanvas = this.getSequenceCanvas('stimulus_sequence', 1)
+        //     await this.renderBlank(delayCanvas) // todo: only do this on window resize
+        //     delayCanvas = await this.renderBlank(blankCanvas)
+        //     frame_canvases.push(delayCanvas)
+        //     frame_durations.push(sampleOff)
+        // }
 
         // Draw test screen
         var testCanvas = this.getSequenceCanvas('stimulus_sequence', frame_canvases.length)

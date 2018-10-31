@@ -33,14 +33,14 @@ class JuiceReinforcer{
 
         if(nreward >=1){
 
-            var RewardDuration = nreward * this.setJuicerRewardDuration();
+            var RewardDuration = 0.5;
 
             if(port.connected == false){
               return
             }
             else if (port.connected == true){
 
-                var p2 = port.writepumpdurationtoUSB(2000)//)Math.round(RewardDuration*1000))
+                var p2 = port.writepumpdurationtoUSB(Math.round(RewardDuration*1000))
                 return p2
             }
         }
@@ -54,7 +54,7 @@ class JuiceReinforcer{
 
       var pumpNumber = 1
       var liquidNumber = 2
-      var rewardPer1000 = this.juiceRewardPer1000 
+      var rewardPer1000 = 300
       if (pumpNumber == 1){
         // m = 1.13; b = 15.04;
         m = 0.99; b = 14.78;

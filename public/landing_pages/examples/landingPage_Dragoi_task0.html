@@ -25,7 +25,7 @@ async function setupSession(){
         "playspace_degreesVisualAngle": 24, 
         "playspace_verticalOffsetInches": 0, 
         "playspace_viewingDistanceInches": 8, 
-        "primary_reinforcer_type": "juice", 
+        "primary_reinforcer_type": "monetary", 
         "rigEnvironment": "monkeybox", 
         "screen_virtualPixelsPerInch": 143.755902965
     }, 
@@ -41,13 +41,14 @@ async function setupSession(){
         }, 
         "IMAGEBAGS": {
             "stimulus_objectome_pineapple": [
-                "https://s3.us-east-2.amazonaws.com/ptap.dragoi/public/tutorial_images/grey.PNG"
-                         ],},
+                "http://localhost:7800/public/tutorial_images/marmoset1.jpg",
+                                  
+                       ],},
                          
         "TASK_SEQUENCE": [
             {
                 "actionDiameterDegrees": [
-                    5000
+                    45
                 ], 
                 "actionXCentroid": [
                     0.5
@@ -57,7 +58,7 @@ async function setupSession(){
                 ], 
                 "averageReturnCriterion": 0.9, 
                 "choiceDiameterDegrees": [
-                    5000
+                    45
                 ], 
                 "choiceTimeLimitMsec": 1, 
                 "choiceXCentroid": [
@@ -67,25 +68,25 @@ async function setupSession(){
                     0.5
                 ], 
                 "drawEyeFixationDot": false, 
-                "fixationDiameterDegrees": 5000, 
+                "fixationDiameterDegrees": 45, 
                 "fixationXCentroid": 0.5, 
                 "fixationYCentroid": 0.5, 
                 "minTrialsCriterion": 10, 
                 "probabilityRepeatWhenWrong": 0, 
                 "punishStreakTimeOutMultiplier": 1.0, 
-                "punishTimeOutMsec": 1000, 
+                "punishTimeOutMsec": 45, 
                 "rewardMap": {
                     "stimulus_objectome_pineapple": [
                         1, 
                   ]
                 }, 
-                "rewardTimeOutMsec": 100, 
+                "rewardTimeOutMsec": 45, 
                 "sampleBagNames": [
                     "stimulus_objectome_pineapple", 
                 ], 
-                "sampleDiameterDegrees": 8000, 
-                "sampleOffMsec": 0, 
-                "sampleOnMsec": 0, 
+                "sampleDiameterDegrees": 45, 
+                "sampleOffMsec": 5, 
+                "sampleOnMsec": 5, 
                 "sampleSampleWithReplacement": true, 
                 "sampleXCentroid": 0.5, 
                 "sampleYCentroid": 0.5, 

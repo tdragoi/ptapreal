@@ -25,32 +25,55 @@ async function setupSession(){
         "playspace_degreesVisualAngle": 24, 
         "playspace_verticalOffsetInches": 0, 
         "playspace_viewingDistanceInches": 8, 
-        "primary_reinforcer_type": "juice", 
-        "rigEnvironment": "mechanicalturk", 
+        "primary_reinforcer_type": "monetary", 
+        "rigEnvironment": "monkeybox", 
         "screen_virtualPixelsPerInch": 143.755902965
     }, 
     "GAME_PACKAGE": {
         "GAME": {
             "gameId": "SimpleTask", 
             //"maximumTrials": 800, 
-            //"minimumTrials": 20, 
-            "onFinish": "continue", 
+            "maximumTrials": 2, //101, 
+            "minimumTrials": 2, 
+//            "onFinish": "continue", 
+            "onFinish": "terminate", 
 			'randomSeed': null,
             //"periodicRewardAmount": 0, 
             //"periodicRewardIntervalMsec": 0
         }, 
         "IMAGEBAGS": {
             "stimulus_objectome_pineapple": [
-                "http://localhost:7800/public/tutorial_images/marmoset1.jpg",
-                "http://localhost:7800/public/tutorial_images/marmoset2.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset3.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset4.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset5.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset6.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset7.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset8.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset9.jpg",
-				"http://localhost:7800/public/tutorial_images/marmoset10.jpg",
+//                "https://s3.amazonaws.com/milresources/Images/MonkeyTurkSets/objectome/images/objectome_pineapple_5946318bc2cdd1947534ae15d43aa7a0d820506e_ty-0.64759_tz0.33642_rxy-5.6836_rxz-71.4586_ryz62.4466_s1.169.png", 
+//                "http://localhost:8080/public/marmoset_images/3_455_s_v1.jpg",
+//                "http://localhost:8080/public/marmoset_images/6944902281_1db6f9fef2_b.jpg",
+//                "http://localhost:8080/public/marmoset_images/24394579293_4ec32a9870_b.jpg",
+//                "http://localhost:8080/public/marmoset_images/common_marmoset_(callithrix_jacchus).jpg",
+//                "http://localhost:8080/public/marmoset_images/common-marmoset-05.jpg",
+//                "http://localhost:8080/public/marmoset_images/download.jpg",
+//                "http://localhost:8080/public/marmoset_images/dtVMRXg7Vd.jpg",
+//                "http://localhost:8080/public/marmoset_images/images.jpg",
+//                "http://localhost:8080/public/marmoset_images/marmoset-monkey-speaks-politely.jpg",
+//                "http://localhost:8080/public/marmoset_images/sn-marmoset.jpg",
+//                "http://18.4.16.140:8000/public/marmoset_images/3_455_s_v1.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/6944902281_1db6f9fef2_b.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/24394579293_4ec32a9870_b.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/common_marmoset_(callithrix_jacchus).jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/common-marmoset-05.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/download.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/dtVMRXg7Vd.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/images.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/marmoset-monkey-speaks-politely.jpg",
+//                "http://18.4.16.140:8080/public/marmoset_images/sn-marmoset.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/3_455_s_v1.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/6944902281_1db6f9fef2_b.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/24394579293_4ec32a9870_b.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/common_marmoset_(callithrix_jacchus).jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/common-marmoset-05.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/download.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/dtVMRXg7Vd.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/images.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/marmoset-monkey-speaks-politely.jpg",
+                "https://18.4.16.140:4443/public/marmoset_images/sn-marmoset.jpg",
             ],
         }, 
         "TASK_SEQUENCE": [
@@ -78,11 +101,14 @@ async function setupSession(){
                     0.5
                 ], 
                 "drawEyeFixationDot": false, 
-                "fixationDiameterDegrees": 5, 
+//                "fixationDiameterDegrees": 5, 
                 "fixationDiameterDegrees": 500, 
                 "fixationXCentroid": 0.5, 
                 "fixationYCentroid": 0.5, 
-                "minTrialsCriterion": 10, 
+// *** 09/27/2018 HS ***
+//                "minTrialsCriterion": 10, 
+                "minTrialsCriterion": 101, 
+// *** 09/27/2018 HS ***
                 "probabilityRepeatWhenWrong": 0, 
                 "punishStreakTimeOutMultiplier": 1.0, 
                 "punishTimeOutMsec": 1000, 
@@ -95,10 +121,10 @@ async function setupSession(){
                 "sampleBagNames": [
                     "stimulus_objectome_pineapple", 
                 ], 
-                "sampleDiameterDegrees": 8, 
+//                "sampleDiameterDegrees": 8, 
                 "sampleDiameterDegrees": 25, 
                 "sampleOffMsec": 0, 
-                "sampleOnMsec": 1000, 
+//                "sampleOnMsec": 1000, 
                 "sampleOnMsec": 2000, 
                 "sampleSampleWithReplacement": true, 
                 "sampleXCentroid": 0.5, 
@@ -151,18 +177,22 @@ async function concludeLandingPage(localSavePackage){
 
 function go_to_main_page(){
   var currentURL = window.location.href 
-  console.log(currentURL)
-  
     if(currentURL.indexOf('localhost')!=-1){
+//        window.location.href = '/public/mkturk.html?loadtime=' +Math.round(window.performance.timing.navigationStart)
+        window.location.href = '/public/mkturk_20180919_HS.html?loadtime=' +Math.round(window.performance.timing.navigationStart)
+    }
+	else if(currentURL.indexOf('18.93.15.148:8000/public/landing_pages/examples/landingPage_Dragoi_Mkturk_simpletask.html')!=-1){
         window.location.href = '/public/mkturk.html?loadtime=' +Math.round(window.performance.timing.navigationStart)
     }
-        else{
+    else{
       try{
         s3_bucket = __S3_INSTALL_BUCKET_GOES_HERE__
         window.location.href = "https://s3.amazonaws.com/"+s3_bucket+"/public/mkturk.html" //?loadtime="+Math.round(window.performance.timing.navigationStart)
       }
       catch(error){
-        window.location.href = "https://s3.amazonaws.com/ptapscratch/public/mkturk.html"//?loadtime="+Math.round(window.performance.timing.navigationStart)
+//        window.location.href = "https://s3.amazonaws.com/ptapscratch/public/mkturk.html"//?loadtime="+Math.round(window.performance.timing.navigationStart)
+//        window.location.href = 'https://18.4.16.140:8080/public/mkturk_20180919_HS.html' //?loadtime=' +Math.round(window.performance.timing.navigationStart)
+        window.location.href = 'https://18.4.16.140:4443/public/mkturk_20180919_HS.html' //?loadtime=' +Math.round(window.performance.timing.navigationStart)
       }
         
     }

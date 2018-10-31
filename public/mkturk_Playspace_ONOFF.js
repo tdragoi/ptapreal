@@ -119,8 +119,10 @@ class PlaySpaceClass{
             fixationYCentroidPixels,
             fixationDiameterPixels)
 
-        var t_fixationOn = await this.ScreenDisplayer.displayFixation()
-        var fixationOutcome = await this.ActionPoller.Promise_wait_until_active_response()
+        //var t_fixationOn = await this.ScreenDisplayer.displayFixation()
+        //var fixationOutcome = await this.ActionPoller.Promise_wait_until_active_response()
+        var fixationOutcome = {} // HARDCODED
+        var t_fixationOn = performance.now()
 
         // RUN STIMULUS SEQUENCE
         wdm('Running stimulus...')
@@ -146,26 +148,34 @@ class PlaySpaceClass{
 
         wdm('Awaiting choice...')
         var actionOutcome = await actionPromise
-        var rewardAmount = 1//trialPackage['choiceRewardMap'][actionOutcome['actionIndex']]
-    
+        if(actionOutcome['actionIndex'] == 'timed_out'){
+            var rewardAmount = 0
+        }
+        else{
+            var rewardAmount = 1    // HARDCODED - reward of 1 whenever they press anything
+        }
+        
         // Deliver reinforcement
         wdm('Delivering reinforcement...')
         if (rewardAmount > 0){
             var t_reinforcementOn = Math.round(performance.now()*1000)/1000
             var p_sound = this.SoundPlayer.play_sound('reward_sound')
             var p_visual = this.ScreenDisplayer.displayReward(trialPackage['rewardTimeOutMsec'])
-            var p_primaryReinforcement = this.Reinforcer.deliver_reinforcement(20) // change back to rewardAmount inside the deliver_reinforcment loop
-            await Promise.all([p_primaryReinforcement, p_visual]) 
+            var p_primaryReinforcement = this.Reinforcer.deliver_reinforcement(10) // change back to rewardAmount inside the deliver_reinforcment loop
+            await p_primaryReinforcement
+            //await Promise.all([p_primaryReinforcement, p_visual])  // HARDCODED - will not play positive reinforcement screen
             var t_reinforcementOff = Math.round(performance.now()*1000)/1000
         }
-        if (rewardAmount <= 0){
-            var t_reinforcementOn = Math.round(performance.now()*1000)/1000
-            var p_sound = this.SoundPlayer.play_sound('punish_sound')
-            var p_visual = this.ScreenDisplayer.displayPunish(trialPackage['punishTimeOutMsec'])
-            await Promise.all([p_sound, p_visual]) 
-            var t_reinforcementOff = Math.round(performance.now()*1000)/1000
-        }
-        if(rewardAmount == undefined){
+        //if (rewardAmount <= 0){
+            // HARDCODED: DO NOTHING IF NO REWARD 
+
+            //var t_reinforcementOn = Math.round(performance.now()*1000)/1000
+            //var p_sound = this.SoundPlayer.play_sound('punish_sound')
+            //var p_visual = this.ScreenDisplayer.displayPunish(trialPackage['punishTimeOutMsec'])
+            //await Promise.all([p_sound, p_visual]) 
+            //var t_reinforcementOff = Math.round(performance.now()*1000)/1000
+        //}
+        else{
             // Timeout
             rewardAmount = 0
             var t_reinforcementOn = Math.round(performance.now()*1000)/1000

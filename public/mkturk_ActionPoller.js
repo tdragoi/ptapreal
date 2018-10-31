@@ -17,8 +17,11 @@ class ActionPollerClass{
         this.actionLog['y'] = []
         this.actionLog['type'] = []
 
-        this.eventType2eventCode = {'mousemove':'mmv', 'mouseup':'mclk', 'touchmove':'dg', 'touchstart':'tp'}
+        // this.eventType2eventCode = {'mousemove':'mmv', 'mouseup':'mclk', 'touchmove':'dg', 'touchend':'te'} //touchend is touch-release-reward
+        // this.supportedEventTypes = ['mousemove', 'mouseup', 'touchmove', 'touchend']
+        this.eventType2eventCode = {'mousemove':'mmv', 'mouseup':'mclk', 'touchmove':'dg', 'touchstart':'tp'} // touchstart is touch-reward
         this.supportedEventTypes = ['mousemove', 'mouseup', 'touchmove', 'touchstart']
+
 
         this.loggingActions = false
         this.listening = false

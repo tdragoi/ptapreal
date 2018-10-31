@@ -1,12 +1,3 @@
-   
-
-
-    var strategy1 = [1035, 1192, 1670, 1199, 1456, 1428, 1494, 1020, 830, 1241, 1359, 997, 1234, 1470, 1274, 652, 1421, 1352, 1610, 1388, 1298, 1237, 1529, 981, 1387, 1415, 1759, 1309, 1150, 1267, 1222, 986, 1305, 1200, 1328, 1176, 1470, 776, 1801, 1111, 1212, 1850, 1322, 1255, 1014, 1656, 1963, 1136, 1195, 1363];
-   
-    var strategy2 = [361, 179, 1805, 286, 1916, 1856, 1883, 365, 1794, 406, 36, 1794, 1755, 232, 1900, 439, 311, 373, 622, 416, 639, 1825, 311, 469, 1839, 559, 1847, 1798, 1862, 283, 1924, 659, 210, 480, 1787, 600, 1845, 404, 1857, 1875, 1910, 137, 1839, 1859, 374, 1807, 1831, 443, 1824, 1828];
-    
-    var trialCounter = 0;
-
 class TrialGeneratorClass{
     constructor(IB, imageBags, taskSequence, onFinish){
         this.IB = IB 
@@ -22,6 +13,7 @@ class TrialGeneratorClass{
         this.onFinish = onFinish
 
     }
+    
     async build(taskNumber, num_trials_per_stage_to_prebuffer){
         this.bag2idx = {}
         this.idx2bag = {}
@@ -200,11 +192,7 @@ class TrialGeneratorClass{
         tP['actionYCentroid'] = tk['actionYCentroid']
         tP['actionDiameterDegrees'] = tk['actionDiameterDegrees']
         tP['choiceRewardMap'] = rewardMap
-
-        if (trialCounter < strategy2.length){
-            tP['sampleOnMsec'] = strategy2[trialCounter]
-            trialCounter = trialCounter + 1
-        }
+        tP['sampleOnMsec'] = tk['sampleOnMsec'] 
         tP['sampleOffMsec'] = tk['sampleOffMsec']
         tP['choiceTimeLimitMsec'] = tk['choiceTimeLimitMsec'] 
         tP['punishTimeOutMsec'] = punishTimeOutMsec

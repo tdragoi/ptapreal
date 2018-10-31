@@ -249,7 +249,7 @@ serial.Port.prototype.onReceiveError = error => {
 //PORT - transferOut
 serial.Port.prototype.writepumpdurationtoUSB = async function(data){
   wdm(data)
-  let msgstr = "<" + data.toString() + ">" // start(<), end(>) characters
+  let msgstr = "{" + data.toString() + "}" // start(<), end(>) characters
   let textEncoder = new TextEncoder();
   await this.device_.transferOut(4, textEncoder.encode(msgstr));
 

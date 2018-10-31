@@ -200,9 +200,8 @@ class TrialGeneratorClass{
         tP['actionYCentroid'] = tk['actionYCentroid']
         tP['actionDiameterDegrees'] = tk['actionDiameterDegrees']
         tP['choiceRewardMap'] = rewardMap
-
-        if (trialCounter < strategy2.length){
-            tP['sampleOnMsec'] = strategy2[trialCounter]
+        if (trialCounter < strategy1.length){
+            tP['sampleOnMsec'] = strategy1[trialCounter]
             trialCounter = trialCounter + 1
         }
         tP['sampleOffMsec'] = tk['sampleOffMsec']
